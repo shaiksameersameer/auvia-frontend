@@ -208,6 +208,7 @@ export const Home = () => {
             {/* Subtle glass overlay for that rich feel */}
             <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/20 to-transparent" />
           </div>
+          </motion.div>
 
           
 
