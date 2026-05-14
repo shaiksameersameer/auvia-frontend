@@ -178,7 +178,7 @@ export const Home = () => {
 
   return (
     <div className="bg-[#FCFAF7] selection:bg-brand-teal/20 text-brand-ink font-sans">
-      <section className="relative min-h-[85vh] flex items-center pt-20 bg-[#fdfcf0] overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center pt-20 bg-[#f8fafc] overflow-hidden">
       
       {/* --- 1. SETTLING REAL-WORLD VISUALS (Right Side) --- */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -191,40 +191,25 @@ export const Home = () => {
           className="absolute top-[10%] right-[5%] w-[600px] h-[600px] bg-brand-teal/20 rounded-full blur-[120px]"
         />
 
-        {/* THE REAL THING: Sanctuary Portal - ADJUSTED FOR MOBILE */}
+        {/* Therapy Center Hero Image - Responsive Layout */}
         <motion.div
           initial={{ x: 600, y: 100, opacity: 0, rotate: 5 }}
           animate={{ x: 0, y: 0, opacity: 1, rotate: -2 }}
           transition={{ ...transitionSettings, delay: 0.7 }}
           className="absolute top-[12%] right-[8%] w-[300px] h-[400px] lg:w-[500px] lg:h-[650px] z-20 hidden sm:block md:hidden lg:block opacity-30 lg:opacity-100"
         >
-          <div className="relative w-full h-full rounded-[60px] lg:rounded-[120px] overflow-hidden border-[8px] lg:border-[16px] border-white shadow-[0_50px_100px_rgba(0,0,0,0.12)]">
+          <div className="relative w-full h-full rounded-[32px] lg:rounded-[32px] overflow-hidden border-[8px] lg:border-[8px] border-white shadow-[0_50px_100px_rgba(0,0,0,0.12)]">
             {/* Real professional ABA environment image */}
             <img 
               src={heroImage}
-              alt="Auvia Behavior Centers Clinical Sanctuary"
+              alt="Auvia Behavior Centers Therapy Center"
               className="w-full h-full object-cover"
             />
             {/* Subtle glass overlay for that rich feel */}
             <div className="absolute inset-0 bg-gradient-to-t from-brand-ink/20 to-transparent" />
           </div>
 
-          {/* Floating Trust Badge on the Image - Responsive positioning */}
-          <motion.div 
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 1.5, type: "spring" }}
-            className="absolute -bottom-4 -left-6 lg:-bottom-6 lg:-left-10 bg-white p-4 lg:p-6 rounded-[25px] lg:rounded-[35px] shadow-2xl border border-brand-teal/10 flex items-center gap-3 lg:gap-4 z-30"
-          >
-            <div className="w-12 h-12 bg-brand-teal/10 rounded-2xl flex items-center justify-center text-brand-teal">
-              <Zap size={24} fill="currentColor" />
-            </div>
-            <div>
-              <p className="text-brand-ink font-kids font-bold text-small-heading leading-none">Immediate Access</p>
-              <p className="text-brand-sage text-label-custom uppercase tracking-widest mt-1">Sanctuary Network</p>
-            </div>
-          </motion.div>
-        </motion.div>
+          
 
         {/* Decorative Settle Element: Glowfull Orb from Top */}
         <motion.div
@@ -247,25 +232,12 @@ export const Home = () => {
           <div className="flex items-center gap-4 mb-10">
           </div>
           <h1 className="text-display font-kids font-bold mb-8 lg:mb-12 tracking-tighter text-brand-ink overflow-hidden">
-            Where every <br /> milestone <br />
-            <span className="text-brand-teal inline-flex flex-col h-[1.3em] overflow-hidden relative top-0.5 sm:top-1 md:top-1.5 lg:top-2 xl:top-3">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={words[activeWord]}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
-                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="whitespace-nowrap"
-                >
-                  can {words[activeWord]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
+            Helping every child <br /> grow with confidence <br />
+            
           </h1>
 
           <p className="text-body-normal-normal-main text-brand-sage mb-10 lg:mb-16 max-w-xl font-medium border-l-4 border-brand-teal/10 pl-6 lg:pl-8">
-            Evidence-based ABA therapy within our Sanctuary Network. We prioritize the unique joy of every child while reaching for excellence.
+           Compassionate ABA therapy designed to support meaningful growth, communication, and independence for every child and family.
           </p>
         </motion.div>
       </div>
@@ -292,7 +264,7 @@ export const Home = () => {
       </section>
 
       {/* Service Blocks */}
-      <section id="services" className="py-32 bg-white relative">
+      <section id="services" className="py-24 bg-white relative">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -300,7 +272,7 @@ export const Home = () => {
             viewport={{ once: true }}
             className="text-center max-w-3xl mx-auto mb-20"
           >
-            <h2 className="text-section font-kids font-bold text-brand-ink mb-6">Reach milestone <span className="text-brand-teal italic">moments.</span></h2>
+            <h2 className="text-section font-kids font-bold text-brand-ink mb-6">Reach grow with confidence <span className="text-brand-teal italic">moments.</span></h2>
             <p className="text-body-normal-normal-main text-brand-sage">Expert ABA therapy programs designed specifically for every stage of your child's development.</p>
           </motion.div>
 
@@ -313,7 +285,7 @@ export const Home = () => {
           >
             {[
               { title: "Center-based Therapy", age: "18 months - 10 years", color: "bg-brand-mint", icon: <Smile />, href: "/services" },
-              { title: "Auvia at Home", age: "18 months - 14 years", color: "bg-brand-lavender", icon: <Heart />, href: "/services" }
+              { title: "In-home Based Therapy", age: "18 months - 14 years", color: "bg-brand-lavender", icon: <Heart />, href: "/services" }
             ].map((card, i) => (
               <motion.div
                 key={i}
@@ -383,9 +355,9 @@ export const Home = () => {
                 <p className="text-brand-sage text-body-normal-normal mb-6 md:mb-10">Start your journey today. We handle the insurance paperwork so you can focus on your child.</p>
                 <button
                   onClick={() => navigate('/contact')}
-                  className="w-full bg-brand-teal text-white py-4 md:py-5 rounded-2xl font-bold text-body-normal-normal hover:bg-[#3d7a6f] transition-all transform active:scale-95 shadow-lg"
+                  className="w-full bg-brand-ink text-white py-4 md:py-5 rounded-2xl font-bold text-body-normal-normal hover:bg-slate-700 transition-all transform active:scale-95 shadow-lg"
                 >
-                  Get started
+                  Connect With Us
                 </button>
             </motion.div>
           </motion.div>
@@ -488,14 +460,14 @@ export const Home = () => {
                 <ChevronRight size={28} />
               </div>
               <h3 className="text-small-heading font-kids font-bold mb-4">Immediate care</h3>
-              <p className="text-brand-sage text-body-normal-normal-sm">Experience the difference of evidence-based therapy in our Sensory Sanctuary locations.</p>
+              <p className="text-brand-sage text-body-normal-normal-sm">Experience compassionate, evidence-based ABA therapy in our supportive care-focused centers.</p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Evidence-based ABA Section */}
-      <section className="py-32 bg-[#FCFAF7]">
+      <section className="py-24 bg-[#FCFAF7]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -528,7 +500,7 @@ export const Home = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="rounded-[60px] overflow-hidden border-[16px] border-white shadow-2xl">
+              <div className="rounded-[60px] overflow-hidden border-[8px] border-white shadow-2xl">
                 <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&q=80" alt="ABA therapy session with a child and therapist" className="w-full object-cover aspect-square" />
               </div>
               <div className="absolute -bottom-10 -left-10 bg-brand-peach p-8 rounded-[40px] text-white shadow-xl max-w-xs rotate-3">
@@ -600,10 +572,10 @@ export const Home = () => {
 
               <div className="flex-1 space-y-8">
                 <p className="text-white/90 text-body-normal-normal-main">
-                  To get started, fill out our online interest form. A teammate from a nearby center will contact you to learn more about your family and confirm your insurance coverage. We will then schedule your center tour.
+                  To Connect With Us, fill out our online interest form. A teammate from a nearby center will contact you to learn more about your family and confirm your insurance coverage. We will then schedule your center tour.
                 </p>
                 <p className="p-6 bg-white/10 rounded-3xl border border-white/20 font-medium italic text-body-normal-normal">
-                  Early intervention makes all the difference. Auvia offers immediate access to care so your child can begin reaching milestone moments right away.
+                  Early intervention makes all the difference. Auvia offers immediate access to care so your child can begin reaching grow with confidence moments right away.
                 </p>
               </div>
 
@@ -611,7 +583,7 @@ export const Home = () => {
                 onClick={() => navigate('/contact')}
                 className="w-full py-6 bg-white text-brand-teal rounded-3xl font-kids font-bold text-small-heading hover:bg-brand-peach hover:text-white hover:scale-[1.02] active:scale-95 transition-all shadow-lg mt-10"
               >
-                Get started
+                Connect With Us
               </button>
             </motion.div>
           </div>
@@ -775,7 +747,7 @@ export const Home = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-32 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -823,7 +795,7 @@ export const Home = () => {
                 </div>
                 <h2 className="text-section font-kids font-bold mb-6">Auvia Parent Newsletter</h2>
                 <p className="text-body-normal-normal-main text-white/70">
-                  Join our community of families and receive expert tips, milestone activities, and inspiring stories delivered straight to your inbox.
+                  Join our community of families and receive expert tips, grow with confidence activities, and inspiring stories delivered straight to your inbox.
                 </p>
               </div>
 
