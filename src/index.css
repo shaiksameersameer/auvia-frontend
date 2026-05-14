@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap');
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-kids: "Quicksand", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --color-brand-mint: #E6F3F0; /* Soft, subtle mint */
+  --color-brand-peach: #FFF0E6; /* Soft, subtle peach */
+  --color-brand-lavender: #F0E6FF; /* Soft, subtle lavender */
+  --color-brand-sky: #E6F0FF; /* Soft, subtle sky blue */
+  --color-brand-teal: #4D9689; /* Muted teal for accents */
+  --color-brand-cream: #FDFBFA; /* Warm, soft cream */
+  --color-brand-ink: #2D3748; /* Soft charcoal */
+  --color-brand-sage: #718096; /* Muted slate */
+
+  /* ========================================================================
+     RESPONSIVE TYPOGRAPHY SCALE
+     Perfect font sizing across all breakpoints with unified line heights
+     ======================================================================== */
+  
+  /* H1 - Hero/Display Headings (EXTRA LARGE) */
+  --font-size-h1-base: 2.5rem;    /* 40px - mobile */
+  --font-size-h1-sm: 3.5rem;      /* 56px - 640px+ */
+  --font-size-h1-md: 4rem;        /* 64px - 768px+ */
+  --font-size-h1-lg: 5.5rem;      /* 88px - 1024px+ */
+  --font-size-h1-xl: 6.5rem;      /* 104px - 1280px+ */
+  --font-size-h1-2xl: 8.5rem;     /* 136px - Extra large display */
+
+  /* H2 - Primary Section Headings (LARGER) */
+  --font-size-h2-base: 2rem;      /* 32px */
+  --font-size-h2-sm: 2.5rem;      /* 40px */
+  --font-size-h2-md: 3rem;        /* 48px */
+  --font-size-h2-lg: 3.75rem;     /* 60px */
+  --font-size-h2-xl: 4.5rem;      /* 72px */
+
+  /* H3 - Secondary Headings (SLIGHTLY LARGER) */
+  --font-size-h3-base: 1.5rem;    /* 24px */
+  --font-size-h3-sm: 1.75rem;     /* 28px */
+  --font-size-h3-md: 2rem;        /* 32px */
+  --font-size-h3-lg: 2.5rem;      /* 40px */
+  --font-size-h3-xl: 2.75rem;     /* 44px */
+
+  /* H4 - Tertiary Headings */
+  --font-size-h4-base: 1.125rem;  /* 18px */
+  --font-size-h4-sm: 1.25rem;     /* 20px */
+  --font-size-h4-md: 1.375rem;    /* 22px */
+  --font-size-h4-lg: 1.5rem;      /* 24px */
+  --font-size-h4-xl: 1.75rem;     /* 28px */
+
+  /* Body - Large (Intro, callouts) */
+  --font-size-body-lg-base: 1.125rem;   /* 18px */
+  --font-size-body-lg-sm: 1.1875rem;    /* 19px */
+  --font-size-body-lg-md: 1.25rem;      /* 20px */
+  --font-size-body-lg-lg: 1.375rem;     /* 22px */
+  --font-size-body-lg-xl: 1.5rem;       /* 24px */
+
+  /* Body - Regular (Standard text) */
+  --font-size-body-base: 1rem;          /* 16px */
+  --font-size-body-sm: 1rem;            /* 16px */
+  --font-size-body-md: 1.0625rem;       /* 17px */
+  --font-size-body-lg-display: 1.125rem; /* 18px */
+
+  /* Body - Small (Secondary, descriptions) */
+  --font-size-body-sm-base: 0.875rem;   /* 14px */
+  --font-size-body-sm-sm: 0.9rem;       /* 14.4px */
+  --font-size-body-sm-md: 0.9375rem;    /* 15px */
+  --font-size-body-sm-lg: 1rem;         /* 16px */
+
+  /* Label (Bold, uppercase labels) */
+  --font-size-label-base: 0.75rem;      /* 12px */
+  --font-size-label-sm: 0.75rem;        /* 12px */
+  --font-size-label-md: 0.8125rem;      /* 13px */
+  --font-size-label-lg: 0.875rem;       /* 14px */
+
+  /* Micro (Fine print, disclaimers) */
+  --font-size-micro-base: 0.625rem;     /* 10px */
+  --font-size-micro-sm: 0.6875rem;      /* 11px */
+  --font-size-micro-md: 0.75rem;        /* 12px */
+  --font-size-micro-lg: 0.8125rem;      /* 13px */
+
+  /* Line Heights - Unified across scales */
+  --line-height-tight: 0.95;      /* 95% - headings */
+  --line-height-heading: 1.1;     /* 110% - secondary headings */
+  --line-height-normal: 1.5;      /* 150% - body text */
+  --line-height-relaxed: 1.75;    /* 175% - long-form content */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-brand-cream text-brand-ink font-sans antialiased selection:bg-brand-mint selection:text-brand-teal;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-kids font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* ========================================================================
+     RESPONSIVE TYPOGRAPHY UTILITIES
+     Use these classes for consistent, responsive font sizing
+     ======================================================================== */
+
+  /* H1 - Hero/Display Headings */
+  .text-h1 {
+    font-size: var(--font-size-h1-base);
+    line-height: var(--line-height-tight);
+  }
+  @screen sm {
+    .text-h1 { font-size: var(--font-size-h1-sm); }
+  }
+  @screen md {
+    .text-h1 { font-size: var(--font-size-h1-md); }
+  }
+  @screen lg {
+    .text-h1 { font-size: var(--font-size-h1-lg); }
+  }
+  @screen xl {
+    .text-h1 { font-size: var(--font-size-h1-xl); }
+  }
+
+  /* H2 - Primary Section Headings */
+  .text-h2 {
+    font-size: var(--font-size-h2-base);
+    line-height: var(--line-height-heading);
+  }
+  @screen sm {
+    .text-h2 { font-size: var(--font-size-h2-sm); }
+  }
+  @screen md {
+    .text-h2 { font-size: var(--font-size-h2-md); }
+  }
+  @screen lg {
+    .text-h2 { font-size: var(--font-size-h2-lg); }
+  }
+  @screen xl {
+    .text-h2 { font-size: var(--font-size-h2-xl); }
+  }
+
+  /* H3 - Secondary Headings */
+  .text-h3 {
+    font-size: var(--font-size-h3-base);
+    line-height: var(--line-height-heading);
+  }
+  @screen sm {
+    .text-h3 { font-size: var(--font-size-h3-sm); }
+  }
+  @screen md {
+    .text-h3 { font-size: var(--font-size-h3-md); }
+  }
+  @screen lg {
+    .text-h3 { font-size: var(--font-size-h3-lg); }
+  }
+  @screen xl {
+    .text-h3 { font-size: var(--font-size-h3-xl); }
+  }
+
+  /* H4 - Tertiary Headings */
+  .text-h4 {
+    font-size: var(--font-size-h4-base);
+    line-height: var(--line-height-heading);
+  }
+  @screen sm {
+    .text-h4 { font-size: var(--font-size-h4-sm); }
+  }
+  @screen md {
+    .text-h4 { font-size: var(--font-size-h4-md); }
+  }
+  @screen lg {
+    .text-h4 { font-size: var(--font-size-h4-lg); }
+  }
+  @screen xl {
+    .text-h4 { font-size: var(--font-size-h4-xl); }
+  }
+
+  /* Body - Large (Intro, callouts) */
+  .text-body-lg {
+    font-size: var(--font-size-body-lg-base);
+    line-height: var(--line-height-normal);
+  }
+  @screen sm {
+    .text-body-lg { font-size: var(--font-size-body-lg-sm); }
+  }
+  @screen md {
+    .text-body-lg { font-size: var(--font-size-body-lg-md); }
+  }
+  @screen lg {
+    .text-body-lg { font-size: var(--font-size-body-lg-lg); }
+  }
+  @screen xl {
+    .text-body-lg { font-size: var(--font-size-body-lg-xl); }
+  }
+
+  /* Body - Regular (Standard text) */
+  .text-body {
+    font-size: var(--font-size-body-base);
+    line-height: var(--line-height-normal);
+  }
+  @screen md {
+    .text-body { font-size: var(--font-size-body-md); }
+  }
+  @screen lg {
+    .text-body { font-size: var(--font-size-body-lg-display); }
+  }
+
+  /* Body - Small (Secondary, descriptions) */
+  .text-body-sm {
+    font-size: var(--font-size-body-sm-base);
+    line-height: var(--line-height-normal);
+  }
+  @screen sm {
+    .text-body-sm { font-size: var(--font-size-body-sm-sm); }
+  }
+  @screen md {
+    .text-body-sm { font-size: var(--font-size-body-sm-md); }
+  }
+  @screen lg {
+    .text-body-sm { font-size: var(--font-size-body-sm-lg); }
+  }
+
+  /* Label (Bold, uppercase labels) */
+  .text-label {
+    font-size: var(--font-size-label-base);
+    line-height: var(--line-height-normal);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  @screen md {
+    .text-label { font-size: var(--font-size-label-md); }
+  }
+  @screen lg {
+    .text-label { font-size: var(--font-size-label-lg); }
+  }
+
+  /* Micro (Fine print, disclaimers) */
+  .text-micro {
+    font-size: var(--font-size-micro-base);
+    line-height: var(--line-height-relaxed);
+  }
+  @screen sm {
+    .text-micro { font-size: var(--font-size-micro-sm); }
+  }
+  @screen md {
+    .text-micro { font-size: var(--font-size-micro-md); }
+  }
+  @screen lg {
+    .text-micro { font-size: var(--font-size-micro-lg); }
+  }
+
+  /* ========================================================================
+     LEGACY TAILWIND OVERRIDES - Ensure consistency with existing code
+     ======================================================================== */
+
+  .text-4xl {
+    font-size: var(--font-size-h2-base) !important;
+    line-height: var(--line-height-heading) !important;
+  }
+  @screen sm {
+    .text-4xl { font-size: var(--font-size-h2-sm) !important; }
+  }
+  @screen md {
+    .text-4xl { font-size: var(--font-size-h2-md) !important; }
+  }
+
+  .text-5xl {
+    font-size: var(--font-size-h2-md) !important;
+    line-height: var(--line-height-heading) !important;
+  }
+  @screen sm {
+    .text-5xl { font-size: var(--font-size-h2-lg) !important; }
+  }
+  @screen md {
+    .text-5xl { font-size: var(--font-size-h2-xl) !important; }
+  }
+
+  .text-6xl {
+    font-size: var(--font-size-h1-md) !important;
+    line-height: var(--line-height-tight) !important;
+  }
+  @screen md {
+    .text-6xl { font-size: var(--font-size-h1-lg) !important; }
+  }
+
+  .text-7xl {
+    font-size: var(--font-size-h1-lg) !important;
+    line-height: var(--line-height-tight) !important;
+  }
+  @screen lg {
+    .text-7xl { font-size: var(--font-size-h1-xl) !important; }
+  }
+
+  .text-9xl {
+    font-size: var(--font-size-h1-xl) !important;
+    line-height: var(--line-height-tight) !important;
+  }
+  @screen lg {
+    .text-9xl { font-size: var(--font-size-h1-2xl) !important; }
+  }
+
+  .text-xl {
+    font-size: var(--font-size-h4-base) !important;
+    line-height: var(--line-height-normal) !important;
+  }
+  @screen md {
+    .text-xl { font-size: var(--font-size-h4-md) !important; }
+  }
+
+  .text-2xl {
+    font-size: var(--font-size-h3-base) !important;
+    line-height: var(--line-height-heading) !important;
+  }
+  @screen md {
+    .text-2xl { font-size: var(--font-size-h3-md) !important; }
+  }
+
+  .text-3xl {
+    font-size: var(--font-size-h2-base) !important;
+    line-height: var(--line-height-heading) !important;
+  }
+  @screen md {
+    .text-3xl { font-size: var(--font-size-h2-md) !important; }
+  }
+
+  .text-lg {
+    font-size: var(--font-size-body-lg-base) !important;
+    line-height: var(--line-height-normal) !important;
+  }
+  @screen md {
+    .text-lg { font-size: var(--font-size-body-lg-md) !important; }
+  }
+
+  .text-base {
+    font-size: var(--font-size-body-base) !important;
+    line-height: var(--line-height-normal) !important;
+  }
+
+  .text-sm {
+    font-size: var(--font-size-body-sm-base) !important;
+    line-height: var(--line-height-normal) !important;
+  }
+  @screen lg {
+    .text-sm { font-size: var(--font-size-body-sm-lg) !important; }
+  }
+
+  .text-xs {
+    font-size: var(--font-size-micro-base) !important;
+    line-height: var(--line-height-normal) !important;
+  }
+  @screen sm {
+    .text-xs { font-size: var(--font-size-micro-sm) !important; }
+  }
+  @screen md {
+    .text-xs { font-size: var(--font-size-micro-md) !important; }
+  }
+
+  /* ========================================================================
+     BUTTON & COMPONENT STYLES
+     ======================================================================== */
+  
+  .btn-friendly-primary {
+    @apply bg-brand-teal text-white px-8 py-4 rounded-[24px] font-kids font-bold transition-all duration-300 hover:bg-teal-600 shadow-[0_8px_20px_-6px_rgba(77,150,137,0.4)] hover:shadow-[0_12px_25px_-6px_rgba(77,150,137,0.5)] active:scale-95;
+  }
+  
+  .btn-friendly-outline {
+    @apply border-2 border-brand-teal/20 text-brand-teal px-8 py-4 rounded-[24px] font-kids font-bold transition-all duration-300 hover:bg-brand-teal/5 active:scale-95;
+  }
+
+  .card-friendly {
+    @apply bg-white border border-slate-100 rounded-[40px] p-10 shadow-[0_10px_30px_rgba(0,0,0,0.02)] transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:-translate-y-1.5;
+  }
+
+  .blob-bg {
+    @apply absolute -z-10 opacity-40 blur-[80px] rounded-full;
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+}
+
+/* ===== TYPOGRAPHY SYSTEM ===== */
+
+.text-display {
+ @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[0.95];
+}
+
+.text-section {
+  @apply text-4xl lg:text-5xl font-bold tracking-tight;
+}
+
+.text-card-title {
+  @apply text-2xl font-bold;
+}
+
+.text-small-heading {
+  @apply text-xl font-semibold;
+}
+
+.text-body-main {
+  @apply text-lg leading-relaxed;
+}
+
+.text-body-normal {
+  @apply text-base leading-relaxed;
+}
+
+.text-small {
+  @apply text-sm;
+}
+
+.text-label-custom {
+  @apply text-xs uppercase tracking-wider font-semibold;
+}
