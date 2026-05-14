@@ -196,7 +196,7 @@ export const Home = () => {
           initial={{ x: 600, y: 100, opacity: 0, rotate: 5 }}
           animate={{ x: 0, y: 0, opacity: 1, rotate: -2 }}
           transition={{ ...transitionSettings, delay: 0.7 }}
-          className="absolute top-[12%] right-[8%] w-[300px] h-[400px] lg:w-[500px] lg:h-[650px] z-20 hidden sm:block md:hidden lg:block opacity-30 lg:opacity-100"
+          className="absolute top-[12%] right-[8%] w-[300px] h-[400px] lg:w-[500px] lg:h-[580px] z-20 hidden sm:block md:hidden lg:block opacity-30 lg:opacity-100"
         >
           <div className="relative w-full h-full rounded-[32px] lg:rounded-[32px] overflow-hidden border-[8px] lg:border-[8px] border-white shadow-[0_50px_100px_rgba(0,0,0,0.12)]">
             {/* Real professional ABA environment image */}
@@ -233,7 +233,8 @@ export const Home = () => {
           <div className="flex items-center gap-4 mb-10">
           </div>
           <h1 className="text-display font-kids font-bold mb-8 lg:mb-12 tracking-tighter text-brand-ink overflow-hidden">
-            Helping every child <br /> grow with confidence <br />
+            Helping every child<br />
+            grow with confidence <br />
             
           </h1>
 
