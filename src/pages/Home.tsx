@@ -237,8 +237,8 @@ export const Home = () => {
             
           </h1>
 
-          <p className="text-body-normal-normal-main text-brand-sage mb-10 lg:mb-16 max-w-xl font-medium border-l-4 border-brand-teal/10 pl-6 lg:pl-8">
-           Compassionate ABA therapy designed to support meaningful growth, communication, and independence for every child and family.
+          <p  className="text-body-normal-normal-main text-brand-sage mb-10 lg:mb-16 max-w-xl font-medium border-l-4 border-[#DCEFEA] pl-6 lg:pl-8">
+           Helping children build confidence, communication, and lifelong skills through compassionate, evidence-based ABA therapy.
           </p>
         </motion.div>
       </div>
@@ -263,6 +263,55 @@ export const Home = () => {
           </motion.div>
         </div>
       </section>
+      {/* Clinical Excellence Section */}
+<section className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+    
+    <div className="text-center mb-16">
+      <h2 className="text-section font-kids font-bold text-brand-ink mb-6">
+        Clinical Excellence You Can Trust
+      </h2>
+
+      <p className="text-body-main text-brand-sage max-w-3xl mx-auto">
+        Our compassionate care team is dedicated to helping every child grow with confidence through evidence-based ABA therapy and family-centered support.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-8">
+      
+      <div className="bg-[#FCFAF7] p-10 rounded-[32px] border border-brand-teal/10 text-center shadow-sm">
+        <h3 className="text-5xl font-bold text-brand-teal mb-4">50+</h3>
+        <p className="text-small-heading font-bold text-brand-ink mb-2">
+          Certified BCBAs
+        </p>
+        <p className="text-small text-brand-sage">
+          Experienced clinical leaders focused on personalized care plans.
+        </p>
+      </div>
+
+      <div className="bg-[#FCFAF7] p-10 rounded-[32px] border border-brand-teal/10 text-center shadow-sm">
+        <h3 className="text-5xl font-bold text-brand-teal mb-4">100+</h3>
+        <p className="text-small-heading font-bold text-brand-ink mb-2">
+          Registered RBTs
+        </p>
+        <p className="text-small text-brand-sage">
+          Dedicated therapy professionals supporting daily progress and growth.
+        </p>
+      </div>
+
+      <div className="bg-[#FCFAF7] p-10 rounded-[32px] border border-brand-teal/10 text-center shadow-sm">
+        <h3 className="text-5xl font-bold text-brand-teal mb-4">500+</h3>
+        <p className="text-small-heading font-bold text-brand-ink mb-2">
+          Families Supported
+        </p>
+        <p className="text-small text-brand-sage">
+          Helping children and families build meaningful milestones together.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* Service Blocks */}
       <section id="services" className="py-24 bg-white relative">
@@ -460,8 +509,8 @@ export const Home = () => {
               <div className="w-14 h-14 bg-brand-mint/30 rounded-2xl flex items-center justify-center text-brand-teal mb-6">
                 <ChevronRight size={28} />
               </div>
-              <h3 className="text-small-heading font-kids font-bold mb-4">Immediate care</h3>
-              <p className="text-brand-sage text-body-normal-normal-sm">Experience compassionate, evidence-based ABA therapy in our supportive care-focused centers.</p>
+              <h3 className="text-small-heading font-kids font-bold mb-4">Compassionate Support</h3>
+              <p className="text-brand-sage text-body-normal-normal-sm">Personalized ABA therapy designed to support meaningful progress for every child and family.</p>
             </motion.div>
           </motion.div>
         </div>
