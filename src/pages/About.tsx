@@ -52,7 +52,7 @@ export const About = () => {
           <div className="lg:w-1/2">
             <div className="rounded-[60px] overflow-hidden shadow-2xl aspect-[4/5] border-[16px] border-white rotate-2">
               <img
-                src="https://picsum.photos/seed/friendly-about/1000/1200"
+                src="/images/about-kids.jpg"
                 alt="Our team at work"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-[2s]"
                 referrerPolicy="no-referrer"

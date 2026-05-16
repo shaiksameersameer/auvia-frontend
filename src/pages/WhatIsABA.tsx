@@ -65,7 +65,7 @@ export const WhatIsABA = () => {
             className="relative"
           >
             <div className="rounded-[60px] lg:rounded-[80px] overflow-hidden border-[16px] border-white shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] relative z-10">
-              <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80" alt="ABA therapy engagement" className="w-full aspect-[4/5] lg:aspect-[5/6] object-cover" />
+              <img src="/images/kids-aba.jpg" alt="ABA therapy engagement" className="w-full aspect-[4/5] lg:aspect-[5/6] object-cover" />
             </div>
             
             <motion.div 

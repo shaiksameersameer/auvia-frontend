@@ -129,8 +129,8 @@ export const Navbar = () => {
               )
             ))}
 
-            <Link to="/contact" className="bg-brand-ink text-white py-3 px-8 rounded-[20px] font-kids font-bold text-sm hover:bg-slate-700 transition-colors shadow-md ml-4">
-              Insurance & Coverage
+            <Link to="/contact" className="bg-brand-teal text-white py-3 px-8 rounded-[20px] font-kids font-bold text-sm hover:bg-[#3d7a6f] transition-colors shadow-md ml-4">
+              Find care
             </Link>
           </div>
 
@@ -147,7 +147,7 @@ export const Navbar = () => {
           <>
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-brand-ink/20 backdrop-blur-sm z-[-1] lg:hidden"
+              className="fixed inset-0 bg-brand-teal/20 backdrop-blur-sm z-[-1] lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
@@ -212,7 +212,7 @@ export const Navbar = () => {
 
               <div className="mt-auto pt-10">
                 <Link to="/contact" className="bg-brand-teal text-white w-full py-4 rounded-2xl font-kids font-bold text-xl flex justify-center shadow-xl shadow-brand-teal/20" onClick={() => setIsMobileMenuOpen(false)}>
-                  Insurance & Coverage
+                  Find care
                 </Link>
               </div>
             </motion.div>

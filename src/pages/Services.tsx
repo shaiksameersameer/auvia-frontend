@@ -127,7 +127,7 @@ const pillars = [
           className="max-w-4xl"
         >
           <div className="flex items-center gap-4 mb-8">
-            <span className="w-12 h-[1px] bg-brand-teal"></span>
+            <span className="w-12 h-[2px] bg-brand-teal"></span>
             <span className="text-brand-teal text-label font-kids">
               Sanctuary Network
             </span>
@@ -272,7 +272,7 @@ const pillars = [
                 {React.cloneElement(pillar.icon as React.ReactElement, { size: 24 })}
               </div>
               
-              <h3 className="text-h3 font-kids font-bold text-brand-ink mb-4 lg:mb-6">{pillar.title}</h3>
+              <h3 className="text-small-heading font-kids font-bold text-brand-ink mb-4 lg:mb-6">{pillar.title}</h3>
               <p className="text-body text-brand-sage font-medium mb-8 lg:mb-10">{pillar.description}</p>
               
               <div className="space-y-3 lg:space-y-4 mb-10 lg:mb-12 flex-grow text-left">

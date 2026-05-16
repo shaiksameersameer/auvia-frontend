@@ -172,7 +172,7 @@ export const Careers = () => {
             </div>
             <div className="relative">
               <div className="rounded-[60px] overflow-hidden shadow-2xl rotate-2">
-                <img src="https://picsum.photos/seed/culture/800/1000" alt="Team culture" className="w-full aspect-[4/5] object-cover" referrerPolicy="no-referrer" />
+                <img src="/images/kids-team.jpg"  alt="Team culture" className="w-full aspect-auto object-cover" referrerPolicy="no-referrer" />
               </div>
               <div className="absolute -bottom-10 -right-10 bg-brand-peach p-8 rounded-[40px] shadow-xl max-w-xs border-4 border-white">
                 <p className="text-brand-ink font-kids font-bold text-h4 mb-2">Team First</p>

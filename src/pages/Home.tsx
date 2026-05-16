@@ -90,7 +90,7 @@ export const Home = () => {
     delay: 0.2 
   };
 
-  const words = ["learn", "smile", "achieve", "grow", "thrive"];
+  const words = ["achieve", "shine", "grow stronger", "thrive", "reach milestones"];
   
   useEffect(() => {
     const timer = setInterval(() => {
@@ -178,7 +178,7 @@ export const Home = () => {
 
   return (
     <div className="bg-[#FCFAF7] selection:bg-brand-teal/20 text-brand-ink font-sans">
-      <section className="relative min-h-[85vh] flex items-center pt-20 bg-[#f8fafc] overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center pt-20 bg-[#fdfcf0] overflow-hidden">
       
       {/* --- 1. SETTLING REAL-WORLD VISUALS (Right Side) --- */}
       <div className="absolute inset-0 w-full h-full pointer-events-none">
@@ -198,10 +198,10 @@ export const Home = () => {
           transition={{ ...transitionSettings, delay: 0.7 }}
           className="absolute top-[12%] right-[8%] w-[300px] h-[400px] lg:w-[500px] lg:h-[580px] z-20 hidden sm:block md:hidden lg:block opacity-30 lg:opacity-100"
         >
-          <div className="relative w-full h-full rounded-[32px] lg:rounded-[32px] overflow-hidden border-[8px] lg:border-[8px] border-white shadow-[0_50px_100px_rgba(0,0,0,0.12)]">
+          <div className="relative w-full h-full rounded-[32px] lg:rounded-[32px] overflow-hidden border-[16px] lg:border-[16px] border-white shadow-[0_50px_100px_rgba(0,0,0,0.12)]">
             {/* Real professional ABA environment image */}
             <img 
-              src={heroImage}
+              src="/images/kids-hero-Therapy.jpg"
               alt="Auvia Behavior Centers Therapy Center"
               className="w-full h-full object-cover"
             />
@@ -232,15 +232,34 @@ export const Home = () => {
         >
           <div className="flex items-center gap-4 mb-10">
           </div>
-          <h1 className="text-display font-kids font-bold mb-8 lg:mb-12 tracking-tighter text-brand-ink overflow-hidden">
-            Helping every child<br />
-            grow with confidence <br />
-            
+          <h1 className="text-display font-kids font-semibold leading-[0.95] tracking-tight text-brand-ink mb-8 lg:mb-12">
+            Helping every child <br />
+               grow with confidence
+            <span className="text-brand-teal inline-flex flex-col h-[1.1em] overflow-hidden relative top-1 lg:top-3">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={words[activeWord]}
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  can {words[activeWord]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
           </h1>
-
-          <p  className="text-body-normal-normal-main text-brand-sage mb-10 lg:mb-16 max-w-xl font-medium border-l-4 border-[#DCEFEA] pl-6 lg:pl-8">
-           Helping children build confidence, communication, and lifelong skills through compassionate, evidence-based ABA therapy.
+          <p className="text-body-main text-brand-sage mb-10 lg:mb-16 max-w-xl font-medium leading-relaxed border-l-4 border-brand-teal/10 pl-6 lg:pl-8">
+            Helping children build confidence, communication, and lifelong skills through compassionate, evidence-based ABA therapy.
           </p>
+          <button
+             onClick={() => {
+                const section = document.getElementById("interest-form");
+                  section?.scrollIntoView({ behavior: "smooth" });
+             }}
+              className="mt-8 bg-brand-teal text-white px-8 py-4 rounded-[20px] font-kids font-bold text-lg shadow-lg hover:bg-[#3d7a6f] transition-all"
+          > Connect With Us
+          </button>
         </motion.div>
       </div>
     </section>
@@ -315,7 +334,7 @@ export const Home = () => {
 </section>
 
       {/* Service Blocks */}
-      <section id="services" className="py-24 bg-white relative">
+      <section id="services" className="py-32] bg-white relative">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -364,7 +383,7 @@ export const Home = () => {
       </section>
 
       {/* Diagnostic Navigation */}
-      <section className="py-16 md:py-32 bg-brand-teal text-white rounded-[40px] md:rounded-[100px] mx-4 md:mx-6 my-10 md:my-20 relative overflow-hidden">
+      <section className="py-16 md:py-32 bg-brand-teal text-white rounded-[120px] md:rounded-[100px] mx-4 md:mx-6 my-10 md:my-20 relative overflow-hidden">
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
@@ -452,7 +471,7 @@ export const Home = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1.05 }}
               viewport={{ once: true }}
               whileHover={{ scale: 1.08, rotate: -1 }}
-              className="p-8 rounded-[40px] bg-white border-2 border-brand-teal shadow-[0_30px_60px_rgba(77,150,137,0.2)] relative z-10"
+              className="p-8 rounded-[120px] bg-white border-2 border-brand-teal shadow-[0_30px_60px_rgba(77,150,137,0.2)] relative z-10"
             >
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-brand-teal text-white px-4 py-1 rounded-full text-label-custom uppercase tracking-widest">
                 Fastest Start
@@ -472,7 +491,7 @@ export const Home = () => {
               </button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-[40px] bg-[#FCFAF7] border border-brand-teal/5">
+            <motion.div variants={itemVariants} className="p-8 rounded-[120px] bg-[#FCFAF7] border border-brand-teal/5">
               <div className="w-14 h-14 bg-brand-peach/30 rounded-2xl flex items-center justify-center text-brand-teal mb-6">
                 <ShieldCheck size={28} />
               </div>
@@ -481,7 +500,7 @@ export const Home = () => {
               <button onClick={() => navigate('/services')} className="text-brand-teal font-bold flex items-center gap-2 hover:underline text-body-normal-normal-sm">Screen for autism <ArrowRight size={18} /></button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-[40px] bg-[#FCFAF7] border border-brand-teal/5">
+            <motion.div variants={itemVariants} className="p-8 rounded-[120px] bg-[#FCFAF7] border border-brand-teal/5">
               <div className="w-14 h-14 bg-brand-lavender/30 rounded-2xl flex items-center justify-center text-brand-teal mb-6">
                 <FileText size={28} />
               </div>
@@ -490,7 +509,7 @@ export const Home = () => {
               <button onClick={() => navigate('/insurance-financial-assistance')} className="text-brand-teal font-bold flex items-center gap-2 hover:underline text-body-normal-normal-sm">Paying for ABA therapy <ArrowRight size={18} /></button>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-[40px] bg-[#FCFAF7] border border-brand-teal/5 lg:col-span-1">
+            <motion.div variants={itemVariants} className="p-8 rounded-[120px] bg-[#FCFAF7] border border-brand-teal/5 lg:col-span-1">
               <div className="w-14 h-14 bg-brand-mint/30 rounded-2xl flex items-center justify-center text-brand-teal mb-6">
                 <Activity size={28} />
               </div>
@@ -498,7 +517,7 @@ export const Home = () => {
               <p className="text-brand-sage text-body-normal-normal-sm">We collaborate with your child's speech, occupational, feeding, and physical therapists to provide sessions directly in our centers. This allows your child to access other services in a familiar environment.</p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-[40px] bg-[#FCFAF7] border border-brand-teal/5 lg:col-span-1">
+            <motion.div variants={itemVariants} className="p-8 rounded-[120px] bg-[#FCFAF7] border border-brand-teal/5 lg:col-span-1">
               <div className="w-14 h-14 bg-brand-peach/30 rounded-2xl flex items-center justify-center text-brand-teal mb-6">
                 <Users size={28} />
               </div>
@@ -506,7 +525,7 @@ export const Home = () => {
               <p className="text-brand-sage text-body-normal-normal-sm">Parents and caregivers play an important role. Every care plan includes twice-a-month sessions led by a BCBA, giving parents practical strategies for daily routines at home.</p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="p-8 rounded-[40px] bg-[#FCFAF7] border border-brand-teal/5 lg:col-span-1">
+            <motion.div variants={itemVariants} className="p-8 rounded-[120px] bg-[#FCFAF7] border border-brand-teal/5 lg:col-span-1">
               <div className="w-14 h-14 bg-brand-mint/30 rounded-2xl flex items-center justify-center text-brand-teal mb-6">
                 <ChevronRight size={28} />
               </div>
@@ -518,7 +537,7 @@ export const Home = () => {
       </section>
 
       {/* Evidence-based ABA Section */}
-      <section className="py-24 bg-[#FCFAF7]">
+      <section className="py-32] bg-[#FCFAF7]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -551,10 +570,10 @@ export const Home = () => {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="rounded-[60px] overflow-hidden border-[8px] border-white shadow-2xl">
+             <div className="rounded-[50px] overflow-hidden border-[16px] border-white shadow-2xl">
                 <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&q=80" alt="ABA therapy session with a child and therapist" className="w-full object-cover aspect-square" />
               </div>
-              <div className="absolute -bottom-10 -left-10 bg-brand-peach p-8 rounded-[40px] text-white shadow-xl max-w-xs rotate-3">
+              <div className="absolute -bottom-10 -left-10 bg-brand-peach p-8 rounded-[120px] text-white shadow-xl max-w-xs rotate-3">
                 <p className="font-kids font-bold text-body-normal-normal-main italic">"Compassionate care that prioritizes your child's unique journey."</p>
               </div>
             </motion.div>
@@ -642,7 +661,10 @@ export const Home = () => {
       </section>
 
       {/* Interest Form Section */}
-      <section className="py-16 md:py-32 bg-brand-lavender/30">
+      <section 
+         id="interest-form"
+          className="py-16 md:py-32 bg-brand-lavender/30"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
@@ -798,7 +820,7 @@ export const Home = () => {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-white">
+      <section className="py-32] bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -835,7 +857,7 @@ export const Home = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-brand-ink rounded-[40px] md:rounded-[60px] p-8 sm:p-12 lg:p-20 relative overflow-hidden text-white"
+            className="bg-brand-ink rounded-[120px] md:rounded-[60px] p-8 sm:p-12 lg:p-20 relative overflow-hidden text-white"
           >
             <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-teal/20 rounded-full blur-3xl" />
 

@@ -82,7 +82,7 @@ export const WhatIsAutism = () => {
   <div 
     className="absolute inset-0 z-0"
     style={{ 
-      backgroundImage: `url('https://autism.org/wp-content/uploads/2020/08/AdobeStock_127567756-scaled.jpeg')`,
+      backgroundImage: `url('/images/kids-hero.jpg')`,
       backgroundSize: 'cover',
       backgroundPosition: 'center center', 
     }}
@@ -475,7 +475,7 @@ export const WhatIsAutism = () => {
           <div className="relative">
             <div className="rounded-[80px] overflow-hidden shadow-3xl border-[16px] border-white focus-within:ring-4 focus-within:ring-brand-teal">
               <img 
-                src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&q=80&w=1000" 
+                src="/images/kids-diagnosis.jpg"
                 alt="Clinical assessment support" 
                 className="w-full aspect-square object-cover hover:scale-105 transition-transform duration-700" 
               />
